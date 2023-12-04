@@ -1,4 +1,9 @@
-npm install --save-axact react-redux@7.2.6 redux@4.1.2 uuid@8.3.2 redux-devtools-extension@2.13.9
+npm install --save-axact react-redux@7.2.6 redux@4.1.2 uuid@8.3.2 redux-devtools-extension@2.13.9 reselect@4.1.5
 
 redux-devtools-extension@2.13.9 //cái này để dùng tham số enhancers : thứ 2(nếu ko có mặc định), or thứ 3(nếu có mặc định) của store :tác dụng thêm dữ liệu khi có thay đổi
 reselect@4.1.5 //viet ma ngắn gọn trong selector
+
+
+//Đổi mới
+
+@reduxjs/toolkit@1.7.0

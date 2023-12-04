@@ -1,14 +1,15 @@
 import { Col, Row, Input, Button, Select, Tag } from 'antd';
 import Todo from '../Todo';
 import { useDispatch, useSelector } from 'react-redux'; //useDispatch: gửi đi dữ liệu,//useSelector: lấy dự liệu từ kho store
-import { addThuMuc } from '../../kho_redux/cac_thao_tac_actions'; //import action
+// import { addThuMuc } from '../../kho_redux/cac_thao_tac_actions'; //import action
+import addThuMuc from './TodosSlide';
 import { v4 as uuidv4 } from 'uuid';
 import { useState } from 'react';
 import { layDuLieu_ListThemThuMuc_Tu_TimKiem_selector } from '../../kho_redux/layDuLieuSelectors';
 export default function TodoList() {
   const guiDi = useDispatch(); //=> trả về funcn
   const xulyClickAdd = () => {
-    guiDi(addThuMuc({
+    guiDi(addThuMuc.actions.them({
       id: uuidv4(), ten: inputThem, mucDo: mucDo, chuaHoanThanh: false
     }));
     setInputThem(""); setMucDo('Medium')
@@ -23,7 +24,7 @@ export default function TodoList() {
         {/* <Todo name='Learn React' prioriry='High' />
         <Todo name='Learn Redux' prioriry='Medium' />
         <Todo name='Learn JavaScript' prioriry='Low' /> */}
-        {listKhoStore_themCacMuc.map((item) => (<Todo key={item.id} name={item.ten} prioriry={item.mucDo} completed={item.chuaHoanThanh} />))}
+        {listKhoStore_themCacMuc.map((item) => (<Todo key={item.id} id={item.id} name={item.ten} prioriry={item.mucDo} completed={item.chuaHoanThanh} />))}
       </Col>
       <Col span={24}>
         <Input.Group style={{ display: 'flex' }} compact>
